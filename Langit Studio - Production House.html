@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Langit Studio - Production House | Cerita Hari Ini, Untuk Esok yang Lebih Baik</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.383.0/dist/umd/lucide.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F17',
+                            card: '#161F30',
+                            border: '#2A364F',
+                            yellow: '#F59E0B',
+                            lightYellow: '#FBBF24',
+                            sky: '#38BDF8',
+                            cloud: '#E2E8F0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0F17;
+            color: #F8FAFC;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glow-yellow {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+        }
+        .glow-sky {
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+        }
+        .glass-card {
+            background: rgba(22, 31, 48, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(11, 15, 23, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .cinematic-gradient {
+            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.1), transparent 40%);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-brand-yellow selection:text-black">
+
+    <!-- NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-yellow to-amber-300 p-0.5 flex items-center justify-center transition-transform group-hover:scale-105">
+                        <div class="w-full h-full bg-brand-dark rounded-[10px] flex items-center justify-center">
+                            <i data-lucide="video" class="w-5 h-5 text-brand-yellow"></i>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display text-xl font-extrabold tracking-wider text-white flex items-center gap-1">
+                            LANGIT <span class="text-brand-yellow">STUDIO</span>
+                        </span>
+                        <span class="text-[9px] tracking-[0.2em] text-gray-400 font-semibold uppercase -mt-1">Production House</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-sm font-medium text-gray-300 hover:text-brand-yellow transition-colors">Beranda</a>
+                    <a href="#about" class="text-sm font-medium text-gray-300 hover:text-brand-yellow transition-colors">Filosofi &amp; Tentang</a>
+                    <a href="#services" class="text-sm font-medium text-gray-300 hover:text-brand-yellow transition-colors">Layanan</a>
+                    <a href="#portfolio" class="text-sm font-medium text-gray-300 hover:text-brand-yellow transition-colors">Portofolio</a>
+                    <a href="#team" class="text-sm font-medium text-gray-300 hover:text-brand-yellow transition-colors">Tim Kami</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-yellow to-amber-500 text-brand-dark font-semibold text-sm hover:shadow-lg hover:shadow-brand-yellow/30 transition-all hover:scale-105 active:scale-95">
+                        Hubungi Kami
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-brand-card focus:outline-none" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden md:hidden glass-nav border-t border-gray-800 px-4 pt-4 pb-6 space-y-3">
+            <a href="#home" class="mobile-link block py-2 text-base font-medium text-gray-200 hover:text-brand-yellow">Beranda</a>
+            <a href="#about" class="mobile-link block py-2 text-base font-medium text-gray-200 hover:text-brand-yellow">Filosofi &amp; Tentang</a>
+            <a href="#services" class="mobile-link block py-2 text-base font-medium text-gray-200 hover:text-brand-yellow">Layanan</a>
+            <a href="#portfolio" class="mobile-link block py-2 text-base font-medium text-gray-200 hover:text-brand-yellow">Portofolio</a>
+            <a href="#team" class="mobile-link block py-2 text-base font-medium text-gray-200 hover:text-brand-yellow">Tim Kami</a>
+            <a href="#contact" class="mobile-link block text-center py-3 rounded-xl bg-brand-yellow text-brand-dark font-bold">Hubungi Kami</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen pt-32 pb-20 flex items-center justify-center cinematic-gradient overflow-hidden">
+        <!-- Background Ambient Grid -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-brand-yellow text-xs font-semibold uppercase tracking-widest mb-8 animate-fade-in border border-brand-yellow/30">
+                <i data-lucide="sparkles" class="w-4 h-4"></i> Official House of Production
+            </div>
+
+            <!-- Main Title & Tagline -->
+            <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
+                LANGIT <span class="bg-gradient-to-r from-brand-yellow via-amber-300 to-brand-sky bg-clip-text text-transparent">STUDIO</span>
+            </h1>
+
+            <p class="text-xl sm:text-2xl font-light text-amber-100/90 italic max-w-3xl mx-auto mb-6">
+                “Cerita Hari Ini, Untuk Esok yang Lebih Baik.”
+            </p>
+
+            <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Rumah produksi kreatif yang menghadirkan sinematografi berkualitas tinggi, berfokus pada cerita kehidupan nyata yang menginspirasi dan berdampak bagi penonton.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-yellow to-amber-500 text-brand-dark font-bold text-base hover:shadow-lg hover:shadow-brand-yellow/30 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    <i data-lucide="play-circle" class="w-5 h-5"></i> Jelajahi Karya
+                </a>
+                <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-semibold text-base hover:bg-white/10 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    <i data-lucide="info" class="w-5 h-5 text-brand-sky"></i> Filosofi Logo
+                </a>
+            </div>
+
+            <!-- Visual Decorative Element -->
+            <div class="mt-16 relative max-w-4xl mx-auto rounded-2xl overflow-hidden glass-card p-3 border border-white/10 glow-yellow">
+                <div class="relative rounded-xl overflow-hidden aspect-video bg-gray-900 group">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Production Set" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                        <button onclick="openVideoModal()" class="w-20 h-20 rounded-full bg-brand-yellow/90 hover:bg-brand-yellow text-brand-dark flex items-center justify-center pl-1 shadow-2xl transition-transform hover:scale-110 active:scale-95 group-hover:glow-yellow">
+                            <i data-lucide="play" class="w-8 h-8 fill-current"></i>
+                        </button>
+                        <span class="mt-4 text-xs font-bold uppercase tracking-widest text-amber-200">Tonton Company Showreel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT & LOGO PHILOSOPHY SECTION -->
+    <section id="about" class="py-24 relative bg-brand-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-yellow font-semibold text-sm uppercase tracking-widest mb-2">Tentang &amp; Identitas Kami</h2>
+                <h3 class="font-display text-3xl sm:text-4xl font-bold text-white">Makna Di Balik Langit Studio</h3>
+                <div class="w-20 h-1 bg-gradient-to-r from-brand-yellow to-brand-sky mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- About Text Box -->
+            <div class="glass-card rounded-2xl p-8 mb-16 border border-white/10">
+                <p class="text-gray-300 text-lg leading-relaxed text-center max-w-4xl mx-auto">
+                    <strong class="text-white">Langit Studio</strong> adalah rumah produksi yang bergerak di bidang pembuatan film, video, dan konten kreatif. Kami berfokus pada cerita-cerita yang dekat dengan kehidupan nyata, dengan tujuan menghadirkan karya yang inspiratif, berkualitas, dan berdampak bagi penonton. Langit Studio melayani kebutuhan produksi untuk film pendek, film dokumenter, iklan, dan konten digital lainnya.
+                </p>
+            </div>
+
+            <!-- Logo Philosophy Grid -->
+            <h4 class="font-display text-2xl font-bold text-white text-center mb-10">Filosofi Logo Perusahaan</h4>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Filosofi 1 -->
+                <div class="glass-card p-6 rounded-2xl hover:border-brand-yellow/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-xl bg-amber-500/10 text-brand-yellow flex items-center justify-center mb-6 group-hover:bg-brand-yellow group-hover:text-brand-dark transition-all">
+                        <i data-lucide="camera" class="w-7 h-7"></i>
+                    </div>
+                    <h5 class="font-display text-xl font-bold text-white mb-2">Kamera Film</h5>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Melambangkan dunia produksi film dan video profesional yang menjadi fokus utama dalam setiap karya kami.
+                    </p>
+                </div>
+
+                <!-- Filosofi 2 -->
+                <div class="glass-card p-6 rounded-2xl hover:border-brand-sky/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-xl bg-sky-500/10 text-brand-sky flex items-center justify-center mb-6 group-hover:bg-brand-sky group-hover:text-brand-dark transition-all">
+                        <i data-lucide="cloud" class="w-7 h-7"></i>
+                    </div>
+                    <h5 class="font-display text-xl font-bold text-white mb-2">Awan / Langit</h5>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Melambangkan mimpi, harapan, dan ruang kreativitas yang tak terbatas tanpa batas imajinasi.
+                    </p>
+                </div>
+
+                <!-- Filosofi 3 -->
+                <div class="glass-card p-6 rounded-2xl hover:border-amber-400/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-xl bg-yellow-500/10 text-amber-400 flex items-center justify-center mb-6 group-hover:bg-amber-400 group-hover:text-brand-dark transition-all">
+                        <i data-lucide="sun" class="w-7 h-7"></i>
+                    </div>
+                    <h5 class="font-display text-xl font-bold text-white mb-2">Warna Kuning</h5>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Melambangkan semangat membara, optimisme, dan gambaran masa depan yang cerah serta penuh inspirasi.
+                    </p>
+                </div>
+
+                <!-- Filosofi 4 -->
+                <div class="glass-card p-6 rounded-2xl hover:border-gray-400/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-xl bg-slate-700/30 text-gray-300 flex items-center justify-center mb-6 group-hover:bg-slate-300 group-hover:text-brand-dark transition-all">
+                        <i data-lucide="shield-check" class="w-7 h-7"></i>
+                    </div>
+                    <h5 class="font-display text-xl font-bold text-white mb-2">Warna Hitam</h5>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Melambangkan profesionalisme tinggi, fokus mendalam pada detail, serta standar kualitas tanpa kompromi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-sky font-semibold text-sm uppercase tracking-widest mb-2">Layanan Utama</h2>
+                <h3 class="font-display text-3xl sm:text-4xl font-bold text-white">Program &amp; Produk Produksi</h3>
+                <p class="text-gray-400 mt-4">Solusi lengkap dari pra-produksi hingga pasca-produksi untuk menyampaikan ide cerita Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl hover:shadow-brand-yellow/10 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-yellow/10 text-brand-yellow flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="clapperboard" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-white mb-3">Produksi Film</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Pembuatan film pendek, film dokumenter, film fiksi, dan film komersial dengan eksekusi cerita yang mendalam dan sinematik.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-2">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-yellow"></i> Film Pendek &amp; Fiksi</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-yellow"></i> Film Dokumenter Realitis</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-yellow"></i> Cinema Commercials</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl hover:shadow-brand-yellow/10 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-sky/10 text-brand-sky flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="megaphone" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-white mb-3">Video Iklan &amp; Promosi</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Kebutuhan promosi kreatif untuk brand, produk, atau institusi yang mampu meningkatkan engagement dan pesan korporat.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-2">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-sky"></i> Commercial Commercial Ads</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-sky"></i> Brand Launch Video</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-sky"></i> Event &amp; Campaign Promo</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl hover:shadow-brand-yellow/10 group">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="share-2" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-white mb-3">Video Konten Digital</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Pembuatan konten media sosial modern, reels, TikTok, vlog, video profil perusahaan (Company Profile), dan format kreatif lainnya.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-2">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Social Media Content &amp; Reels</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Corporate Company Profile</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i> Creative Vlog Series</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl hover:shadow-brand-yellow/10 group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="scissors" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-white mb-3">Jasa Editing Video</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Layanan pasca-produksi film dan video profesional, color grading, sound design, serta efek visual dengan tingkat presisi tinggi.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-2">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Offline &amp; Online Cutting</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Cinematic Color Grading</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Audio Mixing &amp; Mastering</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brand-yellow transition-all duration-300 hover:shadow-xl hover:shadow-brand-yellow/10 group md:col-span-2 lg:col-span-2">
+                    <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+                        <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center shrink-0">
+                            <i data-lucide="lightbulb" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display text-xl font-bold text-white mb-2">Konsultasi Produksi Kreatif</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Pendampingan dan penyusunan konsep bagi individu maupun perusahaan yang ingin mewujudkan ide cerita kasar menjadi skenario visual yang siap diproduksi secara profesional.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-4 text-xs font-semibold text-gray-300">
+                                <span class="px-3 py-1 bg-white/5 rounded-full border border-white/10">Scriptwriting</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full border border-white/10">Storyboarding</span>
+                                <span class="px-3 py-1 bg-white/5 rounded-full border border-white/10">Production Budgeting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="py-24 bg-brand-dark/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-brand-yellow font-semibold text-sm uppercase tracking-widest mb-2">Showcase &amp; Portfolio</h2>
+                    <h3 class="font-display text-3xl sm:text-4xl font-bold text-white">Galeri Karya Langit Studio</h3>
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                    <button class="portfolio-filter active px-4 py-2 rounded-lg text-xs font-bold bg-brand-yellow text-brand-dark transition-all" data-filter="all">Semua</button>
+                    <button class="portfolio-filter px-4 py-2 rounded-lg text-xs font-bold glass-card text-gray-300 hover:text-white transition-all" data-filter="film">Film</button>
+                    <button class="portfolio-filter px-4 py-2 rounded-lg text-xs font-bold glass-card text-gray-300 hover:text-white transition-all" data-filter="iklan">Iklan</button>
+                    <button class="portfolio-filter px-4 py-2 rounded-lg text-xs font-bold glass-card text-gray-300 hover:text-white transition-all" data-filter="digital">Digital</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item film glass-card rounded-2xl overflow-hidden group border border-white/5 hover:border-brand-yellow/40 transition-all">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Film Pendek" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-brand-yellow/90 text-brand-dark font-extrabold text-[10px] rounded uppercase">Film Pendek</span>
+                        <button onclick="openVideoModal('Jejak Waktu', 'Film Pendek Drama Inspiratif')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center pl-1 shadow-lg">
+                                <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-display text-lg font-bold text-white mb-1">Jejak Waktu</h4>
+                        <p class="text-xs text-gray-400">Kisah inspiratif tentang perjuangan menggapai impian di kota besar.</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item iklan glass-card rounded-2xl overflow-hidden group border border-white/5 hover:border-brand-yellow/40 transition-all">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Iklan Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-brand-sky text-brand-dark font-extrabold text-[10px] rounded uppercase">Iklan Brand</span>
+                        <button onclick="openVideoModal('Cita Rasa Nusantara', 'Commercial Ad Commercial')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center pl-1 shadow-lg">
+                                <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-display text-lg font-bold text-white mb-1">Cita Rasa Nusantara</h4>
+                        <p class="text-xs text-gray-400">Video iklan komersial kuliner dengan gaya visual cinematic.</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item digital glass-card rounded-2xl overflow-hidden group border border-white/5 hover:border-brand-yellow/40 transition-all">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Company Profile" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-purple-500 text-white font-extrabold text-[10px] rounded uppercase">Company Profile</span>
+                        <button onclick="openVideoModal('Harmoni Alam', 'Company Profile Visual')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center pl-1 shadow-lg">
+                                <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-display text-lg font-bold text-white mb-1">Profil Perusahaan Inovasi</h4>
+                        <p class="text-xs text-gray-400">Dokumentasi korporat elegan yang menyampaikan nilai dan visi perusahaan.</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item film glass-card rounded-2xl overflow-hidden group border border-white/5 hover:border-brand-yellow/40 transition-all">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Dokumenter" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-brand-yellow/90 text-brand-dark font-extrabold text-[10px] rounded uppercase">Dokumenter</span>
+                        <button onclick="openVideoModal('Suara Pesisir', 'Dokumenter Kebudayaan')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center pl-1 shadow-lg">
+                                <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-display text-lg font-bold text-white mb-1">Suara Pesisir</h4>
+                        <p class="text-xs text-gray-400">Film dokumenter nyata tentang kehidupan masyarakat pesisir pantai.</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item digital glass-card rounded-2xl overflow-hidden group border border-white/5 hover:border-brand-yellow/40 transition-all">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Reels Series" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-purple-500 text-white font-extrabold text-[10px] rounded uppercase">Social Media</span>
+                        <button onclick="openVideoModal('Kreatif Tanpa Batas', 'Reels Creative Series')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center pl-1 shadow-lg">
+                                <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-display text-lg font-bold text-white mb-1">Kreatif Tanpa Batas</h4>
+                        <p class="text-xs text-gray-400">Kampanye konten kreatif media sosial berdurasi pendek.</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item iklan glass-card rounded-2xl overflow-hidden group border border-white/5 hover:border-brand-yellow/40 transition-all">
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460882659923-55b42d5f8a00?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Iklan Digital" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                        <span class="absolute top-3 left-3 px-2.5 py-1 bg-brand-sky text-brand-dark font-extrabold text-[10px] rounded uppercase">Iklan Digital</span>
+                        <button onclick="openVideoModal('Langkah Baru', 'Commercial Campaign')" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="w-12 h-12 rounded-full bg-brand-yellow text-brand-dark flex items-center justify-center pl-1 shadow-lg">
+                                <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-display text-lg font-bold text-white mb-1">Langkah Baru</h4>
+                        <p class="text-xs text-gray-400">Iklan produk fashion lokal bernuansa sinematik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section id="team" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-yellow font-semibold text-sm uppercase tracking-widest mb-2">Kelompok 3</h2>
+                <h3 class="font-display text-3xl sm:text-4xl font-bold text-white">Tim Pengembang Langit Studio</h3>
+                <p class="text-gray-400 mt-4">Talenta kreatif di balik konseptualisasi dan eksekusi rumah produksi.</p>
+            </div>
+
+            <!-- Team Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Member 1 -->
+                <div class="glass-card rounded-2xl p-6 text-center border border-white/5 hover:border-brand-yellow/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-yellow to-amber-200 mx-auto p-0.5 mb-4 group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center text-brand-yellow font-bold text-2xl font-display">
+                            YF
+                        </div>
+                    </div>
+                    <h4 class="font-display text-base font-bold text-white group-hover:text-brand-yellow transition-colors">Yosef Farensius Aritonang</h4>
+                    <p class="text-xs text-brand-sky font-medium mt-1">Produser Utama / Tim Kreatif</p>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="glass-card rounded-2xl p-6 text-center border border-white/5 hover:border-brand-yellow/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-yellow to-amber-200 mx-auto p-0.5 mb-4 group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center text-brand-yellow font-bold text-2xl font-display">
+                            MB
+                        </div>
+                    </div>
+                    <h4 class="font-display text-base font-bold text-white group-hover:text-brand-yellow transition-colors">Muhammad Bintang Fatahillah</h4>
+                    <p class="text-xs text-brand-sky font-medium mt-1">Sutradara / Cinematographer</p>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="glass-card rounded-2xl p-6 text-center border border-white/5 hover:border-brand-yellow/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-yellow to-amber-200 mx-auto p-0.5 mb-4 group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center text-brand-yellow font-bold text-2xl font-display">
+                            QA
+                        </div>
+                    </div>
+                    <h4 class="font-display text-base font-bold text-white group-hover:text-brand-yellow transition-colors">Qomariya Agustin</h4>
+                    <p class="text-xs text-brand-sky font-medium mt-1">Penulis Naskah &amp; Konsep</p>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="glass-card rounded-2xl p-6 text-center border border-white/5 hover:border-brand-yellow/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-yellow to-amber-200 mx-auto p-0.5 mb-4 group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center text-brand-yellow font-bold text-2xl font-display">
+                            NJ
+                        </div>
+                    </div>
+                    <h4 class="font-display text-base font-bold text-white group-hover:text-brand-yellow transition-colors">Nayla Jauza Fikriyah</h4>
+                    <p class="text-xs text-brand-sky font-medium mt-1">Manajer Produksi &amp; Art</p>
+                </div>
+
+                <!-- Member 5 -->
+                <div class="glass-card rounded-2xl p-6 text-center border border-white/5 hover:border-brand-yellow/40 transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-yellow to-amber-200 mx-auto p-0.5 mb-4 group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center text-brand-yellow font-bold text-2xl font-display">
+                            MI
+                        </div>
+                    </div>
+                    <h4 class="font-display text-base font-bold text-white group-hover:text-brand-yellow transition-colors">Muhammad Ivan Maulana</h4>
+                    <p class="text-xs text-brand-sky font-medium mt-1">Editor Video &amp; VFX Specialist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-brand-dark/90 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Info Left -->
+                <div>
+                    <h2 class="text-brand-yellow font-semibold text-sm uppercase tracking-widest mb-2">Mari Wujudkan Karya</h2>
+                    <h3 class="font-display text-3xl sm:text-5xl font-bold text-white mb-6">Punya Cerita Untuk Disampaikan?</h3>
+                    <p class="text-gray-300 leading-relaxed mb-8">
+                        Tim Langit Studio siap membantu Anda dari tahap konseptualisasi naskah hingga karya siap dipublikasikan. Hubungi kami untuk konsultasi produksi atau penawaran kerja sama.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-yellow/10 text-brand-yellow flex items-center justify-center shrink-0">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-semibold text-sm">Email Studio</h5>
+                                <p class="text-gray-400 text-sm">halo@langitstudio.com / kontak@langitstudio.co.id</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-sky/10 text-brand-sky flex items-center justify-center shrink-0">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-semibold text-sm">Telepon &amp; WhatsApp</h5>
+                                <p class="text-gray-400 text-sm">+62 895-1342-2505 (Layanan Konsultasi)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-semibold text-sm">Alamat Studio</h5>
+                                <p class="text-gray-400 text-sm">Kawasan Industri Kreatif, Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Right -->
+                <div class="glass-card p-8 rounded-2xl border border-white/10 glow-sky">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Nama Lengkap</label>
+                            <input type="text" required="" placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-xl bg-brand-dark/80 border border-brand-border text-white focus:outline-none focus:border-brand-yellow transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Email</label>
+                            <input type="email" required="" placeholder="nama@email.com" class="w-full px-4 py-3 rounded-xl bg-brand-dark/80 border border-brand-border text-white focus:outline-none focus:border-brand-yellow transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Layanan yang Diminati</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-brand-dark/80 border border-brand-border text-white focus:outline-none focus:border-brand-yellow transition-colors text-sm">
+                                <option>Produksi Film (Pendek / Dokumenter)</option>
+                                <option>Video Iklan / Promosi Brand</option>
+                                <option>Video Konten Digital &amp; Reels</option>
+                                <option>Jasa Editing &amp; Pasca-Produksi</option>
+                                <option>Konsultasi Produksi</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Pesan &amp; Detail Proyek</label>
+                            <textarea rows="4" required="" placeholder="Ceritakan ide atau kebutuhan produksi Anda..." class="w-full px-4 py-3 rounded-xl bg-brand-dark/80 border border-brand-border text-white focus:outline-none focus:border-brand-yellow transition-colors text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-yellow to-amber-500 text-brand-dark font-bold text-base hover:shadow-lg hover:shadow-brand-yellow/30 transition-all">
+                            Kirim Pesan Konsultasi
+                        </button>
+                    </form>
+                    <!-- Success Banner -->
+                    <div id="form-success" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm text-center">
+                        <i data-lucide="check-circle" class="w-5 h-5 inline mr-2"></i> Pesan berhasil dikirim! Tim Langit Studio akan segera menghubungi Anda.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Brand Info -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-brand-yellow flex items-center justify-center text-brand-dark font-bold">
+                        <i data-lucide="video" class="w-4 h-4"></i>
+                    </div>
+                    <span class="font-display font-bold text-lg text-white">LANGIT STUDIO</span>
+                </div>
+
+                <!-- Copyright -->
+                <p class="text-xs text-gray-400 text-center">
+                    © 2026 Langit Studio (Kelompok 3). All rights reserved. “Cerita Hari Ini, Untuk Esok yang Lebih Baik.”
+                </p>
+
+                <!-- Social Links -->
+                <div class="flex gap-4 text-gray-400">
+                    <a href="#" class="hover:text-brand-yellow transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-brand-yellow transition-colors"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-brand-yellow transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-brand-yellow transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VIDEO MODAL POPUP -->
+    <div id="video-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="relative w-full max-w-4xl glass-card rounded-2xl overflow-hidden border border-white/20 p-2">
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/60 text-white hover:bg-brand-yellow hover:text-brand-dark transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="p-6">
+                <h4 id="modal-title" class="font-display text-xl font-bold text-white mb-1">Company Showreel - Langit Studio</h4>
+                <p id="modal-subtitle" class="text-xs text-brand-yellow uppercase tracking-widest mb-4">Official Video Preview</p>
+                <div class="relative aspect-video rounded-xl bg-black flex items-center justify-center overflow-hidden border border-white/10">
+                    <!-- Simulated Video Player -->
+                    <div class="text-center p-8">
+                        <i data-lucide="clapperboard" class="w-16 h-16 text-brand-yellow mx-auto mb-4 animate-bounce"></i>
+                        <p class="text-gray-300 font-semibold text-lg">Memutar Simulasi Preview Video...</p>
+                        <p class="text-gray-400 text-xs mt-2 max-w-md mx-auto">Dalam mode aktual, player ini akan memuat video resolusi 4K sinematik produksi Langit Studio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Portfolio Filter Logic
+        const filterBtns = document.querySelectorAll('.portfolio-filter');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-brand-yellow', 'text-brand-dark');
+                    b.classList.add('glass-card', 'text-gray-300');
+                });
+
+                btn.classList.add('active', 'bg-brand-yellow', 'text-brand-dark');
+                btn.classList.remove('glass-card', 'text-gray-300');
+
+                const filter = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Functionality
+        const videoModal = document.getElementById('video-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalSubtitle = document.getElementById('modal-subtitle');
+
+        function openVideoModal(title = "Company Showreel - Langit Studio", subtitle = "Official Production House Showreel") {
+            modalTitle.innerText = title;
+            modalSubtitle.innerText = subtitle;
+            videoModal.classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            videoModal.classList.add('hidden');
+        }
+
+        // Close modal on click outside
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+
+        // Form Submit Simulation
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const successMsg = document.getElementById('form-success');
+            const form = document.getElementById('contact-form');
+            
+            successMsg.classList.remove('hidden');
+            form.reset();
+
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+
+</body></html>
